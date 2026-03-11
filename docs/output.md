@@ -19,6 +19,7 @@ The pipeline is built using [Nextflow](https://www.nextflow.io/) and processes d
 - [NumorphResample](#numorphresample) - Generate downsampled images
 - [NumorphRegister](#numorphregister) - Performs registration to the Allen Reference Atlas (ARA)
 - [Numorph3DUnet](#numorph3dunet) - Performs cell-nuclei segmentation and quantification
+- [Nuxnet](#nuxnet) - Performs cell-nuclei segmentation and centroid localization
 - [Mat2JSON](#mat2json) - Converts `.mat`files to JSON
 - [MultiQC](#MultiQC) Aggregate report describing workflow run and tools used from the whole pipeline.
 - [Pipeline information](#pipeline-information) - Reports the metrics generated during the workflow execution
@@ -127,6 +128,19 @@ This process stages the image files from the input directory to the pipeline's w
 </details>
 
 **Numorph3DUnet** performs cell-nuclei segmentation and quantification from the nuclear channel.
+
+### Nuxnet
+
+<details markdown="1">
+<summary>Output files</summary>
+
+- `Sample_id/Nuxnet/`
+  - `Sample_id_counts.csv`
+  - `Sample_id.csv`
+
+</details>
+
+**Nuxnet** performs cell-nuclei segmentation and centroid localization using a PyTorch-based U-Net backend.
 
 ### Mat2JSON
 

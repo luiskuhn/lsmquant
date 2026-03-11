@@ -221,7 +221,7 @@ Update sample orientation
 
 |                 |                                                     |
 | --------------- | --------------------------------------------------- |
-| `count_method`  | _Default: 3dunet_                                   |
+| `nuclei_loc_method` | `3dunet`, `nuxnet`; Select nuclei localization backend (segmentation + centroid localization). _Default: 3dunet_ |
 | `int_threshold` | Minimum intensity of positive cells. _Default: 200_ |
 
 3-DUnet specific parameters
