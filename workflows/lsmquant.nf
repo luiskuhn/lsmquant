@@ -12,6 +12,7 @@ include { softwareVersionsToYAML } from '../subworkflows/nf-core/utils_nfcore_pi
 include { methodsDescriptionText } from '../subworkflows/local/utils_nfcore_lsmquant_pipeline'
 include { MAT2JSON               } from '../modules/local/mat2json'
 include { NUMORPH3DUNET          } from '../modules/local/numorph3dunet'
+include { NUXNET                 } from '../modules/local/nuxnet'
 include { UNZIP                  } from '../modules/nf-core/unzip'
 include { STAGEFILES             } from '../modules/local/stagefiles'
 include { MULTIQC                } from '../modules/nf-core/multiqc'
@@ -150,8 +151,16 @@ workflow LSMQUANT {
     // run nuclei quantification
     if (params.nuclei_quantification) {
         model_file = Channel.fromPath(params.model_file, checkIfExists: !params.model_file.startsWith('http'))
-        NUMORPH3DUNET (stitched_data, model_file)
-        ch_versions = ch_versions.mix(NUMORPH3DUNET.out.versions)
+
+        if (params.nuclei_loc_method == '3dunet') {
+            NUMORPH3DUNET (stitched_data, model_file)
+            ch_versions = ch_versions.mix(NUMORPH3DUNET.out.versions)
+        } else if (params.nuclei_loc_method == 'nuxnet') {
+            NUXNET (stitched_data, model_file)
+            ch_versions = ch_versions.mix(NUXNET.out.versions)
+        } else {
+            error "Invalid '--nuclei_loc_method': '${params.nuclei_loc_method}'. Supported values are: '3dunet', 'nuxnet'."
+        }
     }
     // run ara registration
     if (params.ara_registration) {
