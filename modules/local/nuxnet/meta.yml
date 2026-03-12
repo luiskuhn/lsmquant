@@ -7,8 +7,8 @@ keywords:
   - pytorch
   - unet
 tools:
-  - "nuxnet":
-      description: "PyTorch-based nuclei segmentation and centroid localization tool."
+  - "nuxnet-inference":
+      description: "CLI-focused 3D nuclei localization and segmentation inference tool."
       homepage: ""
       documentation: ""
       tool_dev_url: ""
