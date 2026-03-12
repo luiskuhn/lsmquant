@@ -45,6 +45,14 @@
                     "help_text": "Performs cell nuclei quantification using a pre-trained model. This step is optional and can be skipped if not needed.",
                     "fa_icon": "fas fa-calculator"
                 },
+                "nuclei_loc_method": {
+                    "type": "string",
+                    "description": "Method used for nuclei segmentation and localization.",
+                    "help_text": "Select the nuclei localization backend. Supported methods are `3dunet` (default) and `nuxnet`.",
+                    "fa_icon": "fas fa-microchip",
+                    "enum": ["3dunet", "nuxnet"],
+                    "default": "3dunet"
+                },
                 "model_file": {
                     "type": "string",
                     "description": "Path to the pre-trained model file.",

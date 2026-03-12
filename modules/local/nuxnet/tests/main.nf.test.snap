@@ -1,0 +1,31 @@
+{
+    "Nuxnet stub test - tif": {
+        "content": [
+            {
+                "0": [
+                    [
+                        "TEST1.csv:md5,d41d8cd98f00b204e9800998ecf8427e",
+                        "TEST1_counts.csv:md5,d41d8cd98f00b204e9800998ecf8427e"
+                    ]
+                ],
+                "1": [
+                    "versions.yml:md5,a2ba720253a5fbf90c8560fd1c3fd8fd"
+                ],
+                "cellcounts": [
+                    [
+                        "TEST1.csv:md5,d41d8cd98f00b204e9800998ecf8427e",
+                        "TEST1_counts.csv:md5,d41d8cd98f00b204e9800998ecf8427e"
+                    ]
+                ],
+                "versions": [
+                    "versions.yml:md5,a2ba720253a5fbf90c8560fd1c3fd8fd"
+                ]
+            }
+        ],
+        "timestamp": "2026-03-11T00:00:00.000000000",
+        "meta": {
+            "nf-test": "0.9.4",
+            "nextflow": "25.10.3"
+        }
+    }
+}

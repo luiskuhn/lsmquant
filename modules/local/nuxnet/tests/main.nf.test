@@ -1,0 +1,41 @@
+nextflow_process {
+
+    name "Test Process NUXNET"
+    script "../main.nf"
+    process "NUXNET"
+
+    tag "modules"
+    tag "modules_"
+    tag "nuxnet"
+    tag "gpu"
+    profile "gpu"
+
+    config './nextflow.config'
+
+    test("Nuxnet stub test - tif") {
+
+        options '-stub'
+
+        when {
+            process {
+                """
+                input[0] = Channel.fromList([
+                    tuple([ id:'TEST1'],
+                    file('https://zenodo.org/records/14916478/files/ctip2_topro.zip'),
+                    file(params.pipelines_testdata_base_path + '/test_data/parameterfiles/params_TEST1_lsmquant.csv'))
+                    ])
+                input[1] = Channel.fromPath(params.model_file, checkIfExists: !params.model_file.startsWith('http'))
+                """
+            }
+        }
+
+        then {
+            assertAll(
+                { assert process.success },
+                { assert snapshot(process.out).match() }
+            )
+        }
+
+    }
+
+}

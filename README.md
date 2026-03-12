@@ -42,7 +42,7 @@ This stage reconstructs the 3D image from raw light-sheet data. Here three diffe
 
 **Cell Nuclei Quantification**
 
-Quantification of cell-nuclei is performed using a 3D-Unet and it is performed on the nuclear channel only. This is an optional workflow and can be chosen by setting the parameter:`nuclei_quantification`
+Quantification of cell-nuclei is performed on the nuclear channel only. This optional workflow is enabled with `--nuclei_quantification` and supports `--nuclei_loc_method 3dunet` (default) or `--nuclei_loc_method nuxnet`.
 
 **Allen Brain Atlas Registration (Optional)**
 
@@ -131,6 +131,14 @@ For further information or help, don't hesitate to get in touch on the [Slack `#
 <!-- TODO nf-core: Add bibliography of tools and data used in your pipeline -->
 
 An extensive list of references for the tools used by the pipeline can be found in the [`CITATIONS.md`](CITATIONS.md) file.
+
+You can cite the NuMorph publication as follows:
+
+> **NuMorph: Tools for cortical cellular phenotyping in tissue-cleared whole-brain images.**
+>
+> Krupa O, Fragola G, Hadden-Ford E, Mory JT, Liu T, Humphrey Z, Rees BW, Krishnamurthy A, Snider WD, Zylka MJ, Wu G, Xing L, Stein JL.
+>
+> _Cell Rep._ 2021 Oct 12;37(2):109802. doi: [10.1016/j.celrep.2021.109802](https://doi.org/10.1016/j.celrep.2021.109802).
 
 You can cite the `nf-core` publication as follows:
 
